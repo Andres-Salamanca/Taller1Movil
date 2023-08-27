@@ -1,5 +1,6 @@
 package com.icm.taller_1
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -30,6 +31,9 @@ class TicTacToe : AppCompatActivity() {
 
         binding.Reinicio.setOnClickListener(){
             resetBoard()
+        }
+        for (button in boardList){
+            button.setBackgroundColor(ContextCompat.getColor(this,R.color.blue))
         }
     }
 
@@ -64,34 +68,58 @@ class TicTacToe : AppCompatActivity() {
     }
 
     private fun Campeon(s: String): Boolean {
-        if (match(binding.a1,s) && match(binding.a2,s) && match(binding.a3,s))
+        if (match(binding.a1,s) && match(binding.a2,s) && match(binding.a3,s)){
+            pintarBotones(binding.a1 , binding.a2,binding.a3)
             return true
-        if (match(binding.b1,s) && match(binding.b2,s) && match(binding.b3,s))
+        }
+        if (match(binding.b1,s) && match(binding.b2,s) && match(binding.b3,s)){
+            pintarBotones(binding.b1 , binding.b2,binding.b3)
             return true
-        if (match(binding.c1,s) && match(binding.c2,s) && match(binding.c3,s))
+        }
+        if (match(binding.c1,s) && match(binding.c2,s) && match(binding.c3,s)){
+            pintarBotones(binding.c1 , binding.c2,binding.c3)
             return true
+        }
+        if (match(binding.a1,s) && match(binding.b1,s) && match(binding.c1,s)){
+            pintarBotones(binding.a1 , binding.b1,binding.c1)
+            return true
+        }
+        if (match(binding.a2,s) && match(binding.b2,s) && match(binding.c2,s)){
+            pintarBotones(binding.a2 , binding.b2,binding.c2)
+            return true
+        }
+        if (match(binding.a3,s) && match(binding.b3,s) && match(binding.c3,s)){
+            pintarBotones(binding.a3 , binding.b3,binding.c3)
+            return true
+        }
 
-        if (match(binding.a1,s) && match(binding.b1,s) && match(binding.c1,s))
-            return true
-        if (match(binding.a2,s) && match(binding.b2,s) && match(binding.c2,s))
-            return true
-        if (match(binding.a3,s) && match(binding.b3,s) && match(binding.c3,s))
-            return true
 
-
-        if (match(binding.a1,s) && match(binding.b2,s) && match(binding.c3,s))
+        if (match(binding.a1,s) && match(binding.b2,s) && match(binding.c3,s)){
+            pintarBotones(binding.a1 , binding.b2,binding.c3)
             return true
-        if (match(binding.a3,s) && match(binding.b2,s) && match(binding.c1,s))
+        }
+        if (match(binding.a3,s) && match(binding.b2,s) && match(binding.c1,s)){
+            pintarBotones(binding.a3 , binding.b2,binding.c1)
             return true
+        }
         return false
+    }
+
+
+    private fun pintarBotones(a1: Button, a2: Button, a3: Button) {
+        a1.setBackgroundColor(ContextCompat.getColor(this,R.color.Campeon))
+        a2.setBackgroundColor(ContextCompat.getColor(this,R.color.Campeon))
+        a3.setBackgroundColor(ContextCompat.getColor(this,R.color.Campeon))
     }
 
     private fun match(button: Button,simbolo:String): Boolean = button.text == simbolo
 
     private fun result(s: String) {
         binding.result.text = s
+
     }
 
+    @SuppressLint("ResourceAsColor")
     private fun resetBoard(){
         for (button in boardList){
             button.text=""
@@ -104,6 +132,10 @@ class TicTacToe : AppCompatActivity() {
 
         currentTurn = firstTurn
         binding.result.text = " "
+
+        for (button in boardList){
+            button.setBackgroundColor(ContextCompat.getColor(this,R.color.blue))
+        }
         setTurnColor()
     }
 
