@@ -1,6 +1,7 @@
 package com.icm.taller_1
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -36,7 +37,10 @@ class MainActivity : AppCompatActivity() {
 //        saludo.setOnClickListener {
 //            Toast.makeText(applicationContext, "Hola", Toast.LENGTH_LONG).show()
 //        }
-
+        pais.setOnClickListener() {
+            val pasarpais = Intent(this,PaisesActivity::class.java)
+            startActivity(pasarpais)
+        }
 
     }
 
