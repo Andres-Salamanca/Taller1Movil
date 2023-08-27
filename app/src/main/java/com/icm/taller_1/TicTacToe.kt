@@ -56,15 +56,23 @@ class TicTacToe : AppCompatActivity() {
 
         if(Campeon(CIRCULO)){
             result("Campeon O")
+            quitarListener()
         }
         else if(Campeon(EQUIS)){
             result("Campeon X")
+            quitarListener()
         }
 
         if(fullBoard()){
             result("Empate")
         }
 
+    }
+
+    private fun quitarListener() {
+        for(button in boardList){
+            button.isEnabled = false
+        }
     }
 
     private fun Campeon(s: String): Boolean {
@@ -137,6 +145,13 @@ class TicTacToe : AppCompatActivity() {
             button.setBackgroundColor(ContextCompat.getColor(this,R.color.blue))
         }
         setTurnColor()
+        ponerListener()
+    }
+
+    private fun ponerListener() {
+        for(button in boardList){
+            button.isEnabled = true
+        }
     }
 
     private fun fullBoard(): Boolean {
