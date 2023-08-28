@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Taller_1</string>
+    <string name="jugador_2_o">Jugador 2: O</string>
+    <string name="jugador_1_x">Jugador 1 : X</string>
 </resources>
