@@ -44,8 +44,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        var spinner: Spinner = findViewById(R.id.spinner) //Spinner de paises
-        var adaptador = ArrayAdapter<String>(this, R.array.idiomas, android.R.layout.simple_list_item_1)
+        /*var spinner: Spinner = findViewById(R.id.spinner) //Spinner de paises
+        var adaptador = ArrayAdapter<String>(this, R.array.idiomas, android.R.layout.simple_list_item_1)*/
         spinner.adapter = adaptador
 
 
