@@ -2,4 +2,5 @@
     <string name="app_name">Taller_1</string>
     <string name="jugador_2_o">Jugador 2: O</string>
     <string name="jugador_1_x">Jugador 1 : X</string>
+    <string name="aqui_va_el_nombre_del_pais">Aqui va el nombre del pais</string>
 </resources>

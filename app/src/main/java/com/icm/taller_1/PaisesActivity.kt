@@ -1,6 +1,7 @@
 package com.icm.taller_1
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ListView
@@ -45,6 +46,17 @@ class PaisesActivity : AppCompatActivity() {
         val listView = findViewById<ListView>(R.id.Listview)
         val adapter = CountryAdapter(this, countryList)
         listView.adapter = adapter
+
+
+
+        listView.setOnItemClickListener { _, _, position, _ ->
+
+            val selectedCountry = countryList[position].nombre_pais
+
+            val intent = Intent(this, InfoPaisActivity::class.java)
+            intent.putExtra("country", selectedCountry)
+            startActivity(intent)
+        }
     }
 
     fun readJsonFromAssets(context: Context, fileName: String): JSONArray? {
