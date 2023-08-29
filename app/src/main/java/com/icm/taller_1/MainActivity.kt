@@ -24,28 +24,11 @@ class MainActivity : AppCompatActivity() {
 
         var spinner: Spinner = findViewById(R.id.spinner) //Spinner de pises
         var adaptador = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, resources.getStringArray(R.array.idiomas))
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                when (spinner.selectedItem.toString()) { //Obtener el elemento que se esta seleccionando dentro del spinner y se convierte en string para asignar un valor
-                    "Español" -> saludo.text = "Bienvenido a TicTacToe" //Se le asigna un valor a la opción escogida
-                    "English - Ingles" -> saludo.text = "Welcome to TicTacToe" //Se le asigna un valor a la opción escogida
-                    "Français - Frances" -> saludo.text = "Bienvenue à TicTacToe" //Se le asigna un valor a la opción escogida
-                    "Deutsch - Aleman" -> saludo.text = "Willkommen bei TicTacToe" //Se le asigna un valor a la opción escogida
-                    "日本語 - Japones" -> saludo.text = "TicTacToe へようこそ" //Se le asigna un valor a la opción escogida
-                }
-            }
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                saludo.text = "" // Limpiar el mensaje de saludo si no se selecciona ningún idioma
-            }
-        }
         saludo.setOnClickListener{
             val intent = Intent(this, Saludo::class.java)
             intent.putExtra("Saludo", saludo.text.toString())
             startActivity(intent)
         }
-
-        var spinner: Spinner = findViewById(R.id.spinner) //Spinner de paises
-        var adaptador = ArrayAdapter<String>(this, R.array.idiomas, android.R.layout.simple_list_item_1)
         spinner.adapter = adaptador
 
         juego.setOnClickListener {
