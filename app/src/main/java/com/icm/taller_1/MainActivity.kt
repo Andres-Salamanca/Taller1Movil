@@ -48,10 +48,16 @@ class MainActivity : AppCompatActivity() {
         var adaptador = ArrayAdapter<String>(this, R.array.idiomas, android.R.layout.simple_list_item_1)
         spinner.adapter = adaptador
 
+
+              pais.setOnClickListener() {
+            val pasarpais = Intent(this,PaisesActivity::class.java)
+            startActivity(pasarpais)
+        }
         juego.setOnClickListener {
             val intent = Intent(this, TicTacToe::class.java)
             startActivity(intent)
         }
+
 
 
     }
