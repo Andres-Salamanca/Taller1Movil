@@ -20,7 +20,7 @@ class TicTacToe : AppCompatActivity() {
     private var firstTurn = Turn.EQUIS
     private var currentTurn = Turn.EQUIS
     private var boardList= mutableListOf<Button>()
-    private lateinit var binding: ActivityTicTacToeBinding
+    private lateinit var binding: AActivityTicTacToeBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
