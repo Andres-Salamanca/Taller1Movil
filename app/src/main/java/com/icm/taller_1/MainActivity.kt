@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         spinner.adapter = adaptador
 
 
-              pais.setOnClickListener() {
+        pais.setOnClickListener() {
             val pasarpais = Intent(this,PaisesActivity::class.java)
             startActivity(pasarpais)
         }
