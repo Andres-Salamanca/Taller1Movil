@@ -51,10 +51,17 @@ class PaisesActivity : AppCompatActivity() {
 
         listView.setOnItemClickListener { _, _, position, _ ->
 
-            val selectedCountry = countryList[position].nombre_pais
+            val selectedCountryname = countryList[position].nombre_pais
+            val selectedCountryCapital = countryList[position].capital
+            val selectedCountrySigla = countryList[position].sigla
+            val selectedCountryIngles = countryList[position].nombre_pais_int
+
 
             val intent = Intent(this, InfoPaisActivity::class.java)
-            intent.putExtra("country", selectedCountry)
+            intent.putExtra("country", selectedCountryname)
+            intent.putExtra("capital",selectedCountryCapital)
+            intent.putExtra("sigla",selectedCountrySigla)
+            intent.putExtra("nombreIngles",selectedCountryIngles)
             startActivity(intent)
         }
     }
